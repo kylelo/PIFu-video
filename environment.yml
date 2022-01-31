@@ -5,13 +5,10 @@ channels:
 dependencies:
 - opencv
 - pytorch
-- json
-- pyexr
-- cv2
-- PIL
-- skimage
+- jmcmurray::json
+- scikit-image
 - tqdm
-- pyembree
+- conda-forge::pyembree
 - shapely
 - rtree
 - xxhash

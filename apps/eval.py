@@ -51,7 +51,7 @@ class Evaluator:
             netC = None
 
         os.makedirs(opt.results_path, exist_ok=True)
-        os.makedirs('%s/%s' % (opt.results_path, opt.name), exist_ok=True)
+        os.makedirs('%s/%s/%s' % (opt.results_path, opt.name, opt.video_name), exist_ok=True)
 
         opt_log = os.path.join(opt.results_path, opt.name, 'opt.txt')
         with open(opt_log, 'w') as outfile:
@@ -98,7 +98,7 @@ class Evaluator:
             self.netG.eval()
             if self.netC:
                 self.netC.eval()
-            save_path = '%s/%s/result_%s.obj' % (opt.results_path, opt.name, data['name'])
+            save_path = '%s/%s/%s/result_%s.obj' % (opt.results_path, opt.name, opt.video_name, data['name'])
             if self.netC:
                 gen_mesh_color(opt, self.netG, self.netC, self.cuda, data, save_path, use_octree=use_octree)
             else:

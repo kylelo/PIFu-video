@@ -32,7 +32,7 @@ class BaseOptions():
         g_train.add_argument('--serial_batches', action='store_true',
                              help='if true, takes images in order to make batches, otherwise takes them randomly')
         g_train.add_argument('--pin_memory', action='store_true', help='pin_memory')
-        
+
         g_train.add_argument('--batch_size', type=int, default=2, help='input batch size')
         g_train.add_argument('--learning_rate', type=float, default=1e-3, help='adam learning rate')
         g_train.add_argument('--learning_rateC', type=float, default=1e-3, help='adam learning rate')
@@ -41,10 +41,10 @@ class BaseOptions():
         g_train.add_argument('--freq_plot', type=int, default=10, help='freqency of the error plot')
         g_train.add_argument('--freq_save', type=int, default=50, help='freqency of the save_checkpoints')
         g_train.add_argument('--freq_save_ply', type=int, default=100, help='freqency of the save ply')
-       
+
         g_train.add_argument('--no_gen_mesh', action='store_true')
         g_train.add_argument('--no_num_eval', action='store_true')
-        
+
         g_train.add_argument('--resume_epoch', type=int, default=-1, help='epoch resuming the training')
         g_train.add_argument('--continue_train', action='store_true', help='continue training: load the latest model')
 
@@ -52,6 +52,7 @@ class BaseOptions():
         g_test = parser.add_argument_group('Testing')
         g_test.add_argument('--resolution', type=int, default=256, help='# of grid in mesh reconstruction')
         g_test.add_argument('--test_folder_path', type=str, default=None, help='the folder of test image')
+        g_test.add_argument('--video_name', type=str, default=None)
 
         # Sampling related
         g_sample = parser.add_argument_group('Sampling')
@@ -115,6 +116,9 @@ class BaseOptions():
         # for single image reconstruction
         parser.add_argument('--mask_path', type=str, help='path for input mask')
         parser.add_argument('--img_path', type=str, help='path for input image')
+        # for obj to video
+        parser.add_argument('--obj_path', type=str, help='path for obj')
+        parser.add_argument('--video_path', type=str, help='path for video')
 
         # aug
         group_aug = parser.add_argument_group('aug')

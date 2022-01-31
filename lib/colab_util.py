@@ -18,13 +18,13 @@ from base64 import b64encode
 from pytorch3d.structures import Meshes
 from pytorch3d.renderer import (
     look_at_view_transform,
-    OpenGLOrthographicCameras, 
-    PointLights, 
-    DirectionalLights, 
-    Materials, 
-    RasterizationSettings, 
-    MeshRenderer, 
-    MeshRasterizer,  
+    OpenGLOrthographicCameras,
+    PointLights,
+    DirectionalLights,
+    Materials,
+    RasterizationSettings,
+    MeshRenderer,
+    MeshRasterizer,
     SoftPhongShader,
     HardPhongShader,
     TexturesVertex
@@ -36,14 +36,14 @@ def set_renderer():
     torch.cuda.set_device(device)
 
     # Initialize an OpenGL perspective camera.
-    R, T = look_at_view_transform(2.0, 0, 180) 
+    R, T = look_at_view_transform(2.0, 0, 180)
     cameras = OpenGLOrthographicCameras(device=device, R=R, T=T)
 
     raster_settings = RasterizationSettings(
-        image_size=512, 
-        blur_radius=0.0, 
-        faces_per_pixel=1, 
-        bin_size = None, 
+        image_size=512,
+        blur_radius=0.0,
+        faces_per_pixel=1,
+        bin_size = None,
         max_faces_per_bin = None
     )
 
@@ -51,11 +51,11 @@ def set_renderer():
 
     renderer = MeshRenderer(
         rasterizer=MeshRasterizer(
-            cameras=cameras, 
+            cameras=cameras,
             raster_settings=raster_settings
         ),
         shader=HardPhongShader(
-            device=device, 
+            device=device,
             cameras=cameras,
             lights=lights
         )
@@ -95,7 +95,7 @@ def generate_video_from_obj(obj_path, video_path, renderer):
     mesh_wo_tex = Meshes(vers, faces, wo_textures)
 
     # create VideoWriter
-    fourcc = cv2. VideoWriter_fourcc(*'MP4V')
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     out = cv2.VideoWriter(video_path, fourcc, 20.0, (1024,512))
 
     for i in tqdm(range(90)):

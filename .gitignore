@@ -1,1 +1,5 @@
 checkpoints/*
+sample_images/*
+results/*
+
+__pycache__/
