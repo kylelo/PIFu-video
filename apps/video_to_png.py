@@ -15,6 +15,7 @@ class Options:
         self.parser.add_argument('--input_video_path', type=str, help='Path to a all input videos.', default='./sample_videos')
         self.parser.add_argument('--output_folder_path', type=str, help='Path to output folder', default='./sample_images')
         self.parser.add_argument('--algo', type=str, help='Background subtraction method (MobileNetV3, KNN, MOG2).', default='MobileNetV3')
+        self.parser.add_argument('--sharpening', help='Apply sharpening kernel to each frame', action='store_true')
         self.parser.add_argument('--play_video', help='Display the frame currently under processing', action='store_true')
 
     def parse(self):
@@ -22,6 +23,11 @@ class Options:
 
 class VideoProcess:
     def __init__(self, opts):
+        self.sharpening_kernel = np.array([[0, -1, 0],
+                                           [-1, 5,-1],
+                                           [0, -1, 0]])
+
+        self.sharpening = opts.sharpening
         self.algo = opts.algo
         if self.algo == 'MobileNetV3':
             mp_selfie_segmentation = mp.solutions.selfie_segmentation
@@ -52,9 +58,12 @@ class VideoProcess:
             if frame is None:
                 break
 
+            if self.sharpening:
+                frame = cv2.filter2D(src=frame, ddepth=-1, kernel=self.sharpening_kernel)
+
             if self.algo == 'MobileNetV3':
                 results = self.backSub.process(frame)
-                frame_mask = results.segmentation_mask
+                frame_mask = results.segmentation_mask*256
             else:
                 frame_mask = self.backSub.apply(frame)
 
@@ -63,7 +72,7 @@ class VideoProcess:
                 cv2.imshow('Frame Mask', frame_mask)
                 keyboard = cv2.waitKey(30)
 
-            frame = np.concatenate((frame, frame_mask[:,:,None]*256), axis=2)
+            frame = np.concatenate((frame, frame_mask[:,:,None]), axis=2)
 
             cv2.imwrite(output_folder_path + "%s%d.png" % (video_name, frame_id), frame)
             # cv2.imwrite(output_folder_path + "%s%d_mask.png" % (video_name, frame_id), frame_mask)

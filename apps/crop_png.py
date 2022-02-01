@@ -9,8 +9,10 @@ import argparse
 def get_bbox(msk):
     rows = np.any(msk, axis=1)
     cols = np.any(msk, axis=0)
-    rmin, rmax = np.where(rows)[0][[0,-1]]
-    cmin, cmax = np.where(cols)[0][[0,-1]]
+    rows_ids = np.where(rows)[0]
+    cols_ids = np.where(cols)[0]
+    rmin, rmax = rows_ids[[0,-1]] if len(rows_ids) else (0, rows.shape[0])
+    cmin, cmax = cols_ids[[0,-1]] if len(cols_ids) else (cols.shape[0], 0)
 
     return rmin, rmax, cmin, cmax
 

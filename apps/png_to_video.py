@@ -18,7 +18,7 @@ def png_to_video(png_folder_path, video_name="output.mp4"):
         size = (width, height)
         img_array.append(img)
 
-    out = cv2.VideoWriter(os.path.join(png_folder_path, video_name), cv2.VideoWriter_fourcc(*'mp4v'), 20.0, size)
+    out = cv2.VideoWriter(os.path.join(png_folder_path, video_name), cv2.VideoWriter_fourcc(*'mp4v'), 10.0, size)
 
     for img in img_array:
         out.write(img)
