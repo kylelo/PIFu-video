@@ -1,8 +1,8 @@
 # An improved video2mesh tool based-on PIFu
 
 <p float="left">
-    <img src="https://user-images.githubusercontent.com/7735800/152027398-0a5a2c1d-d869-4fad-baa3-2174b8bcb83f.png" width="230" />
-    <img src="https://user-images.githubusercontent.com/7735800/152027436-41cdbedf-48ad-4267-88a5-c46b9949dbbe.png" width="230" />
+    <img src="https://user-images.githubusercontent.com/7735800/152027398-0a5a2c1d-d869-4fad-baa3-2174b8bcb83f.png" width="200" />
+    <img src="https://user-images.githubusercontent.com/7735800/152027436-41cdbedf-48ad-4267-88a5-c46b9949dbbe.png" width="200" />
     <img src="https://user-images.githubusercontent.com/7735800/152030987-b27ab68a-cadc-42dd-b3ac-9cca73f25d2d.gif" width="450" />
 </p>
 
