@@ -36,6 +36,6 @@ Others:
 * Run `./scripts/display.sh` to generate video of a rotating obj file
 
 ## Results
-Please find the comparison and discussion here.
+Please find the comparison and discussion [here](https://drive.google.com/file/d/1npRGv6JietWmnu4BKZ1CeMzKEQ4T_qnP/view?usp=sharing).
 
 Please find all predicted mesh files [here](https://drive.google.com/drive/u/1/folders/1USnjproKSMqUb3mXg6Vv3G7vFmOC8wOw)
