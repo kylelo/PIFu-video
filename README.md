@@ -3,7 +3,7 @@
 <p float="left">
     <img src="https://user-images.githubusercontent.com/7735800/152027398-0a5a2c1d-d869-4fad-baa3-2174b8bcb83f.png" width="200" />
     <img src="https://user-images.githubusercontent.com/7735800/152027436-41cdbedf-48ad-4267-88a5-c46b9949dbbe.png" width="200" />
-    <img src="https://user-images.githubusercontent.com/7735800/152030987-b27ab68a-cadc-42dd-b3ac-9cca73f25d2d.gif" width="450" />
+    <img src="https://user-images.githubusercontent.com/7735800/152030987-b27ab68a-cadc-42dd-b3ac-9cca73f25d2d.gif" width="430" />
 </p>
 
 This project chooses the pre-trained [PIFu](https://shunsukesaito.github.io/PIFu/) as the based-model, which takes in an (or multiple) image and outputs a shape represented by SDF (signed-distance function). One can leverage voxel sampling and [marching cube](https://en.wikipedia.org/wiki/Marching_cubes) algorithm to generate mesh.
