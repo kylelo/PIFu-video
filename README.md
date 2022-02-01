@@ -1,4 +1,4 @@
-# An imporved video2mesh tool based-on PIFu
+# An improved video2mesh tool based-on PIFu
 
 
 This project chooses the pre-trained [PIFu](https://shunsukesaito.github.io/PIFu/) as the based-model, which takes in an (or multiple) image and outputs a shape represented by SDF (signed-distance function). One can leverage voxel sampling and [marching cube](https://en.wikipedia.org/wiki/Marching_cubes) algorithm to generate mesh.
