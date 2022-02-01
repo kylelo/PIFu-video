@@ -35,8 +35,7 @@ Others:
 * Run `./scripts/make_video.sh` to convert masked png into a mp4 video
 * Run `./scripts/display.sh` to generate video of a rotating obj file
 
-## Demo
-Please find the detailed result comparison here.
+## Results
+Please find the comparison and discussion here.
 
-## Predicted obj. Files
-link
+Please find all predicted mesh files [here](https://drive.google.com/drive/u/1/folders/1USnjproKSMqUb3mXg6Vv3G7vFmOC8wOw)
